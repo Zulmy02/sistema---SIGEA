@@ -5,13 +5,13 @@ include("includes/conexion.php");
 $usuario = $_POST["nombre_usuario"];
 $contrasena = $_POST["contrasena"];
 
-// 1. Preparamos la plantilla (usamos '?' en lugar de las variables)
+
 $stmt = $conexion->prepare("SELECT NOMBRE_USUARIO, ROL FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?");
 
-// 2. Unimos los datos (la "s" significa que son Strings)
+// Unimos los datos 
 $stmt->bind_param("ss", $usuario, $contrasena);
 
-// 3. Ejecutamos
+
 $stmt->execute();
 $resultado = $stmt->get_result();
 
