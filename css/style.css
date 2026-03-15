@@ -2,18 +2,19 @@
 body {
     display: flex;
     flex-direction: column;    /* Mantiene el orden vertical */
-    align-items: center;       /* Centra horizontalmente */
-    justify-content: flex-start; /* <--- CAMBIA 'center' por 'flex-start' */
-    min-height: 100vh;         /* Usa min-height en lugar de height */
+    align-items: center;       
+    justify-content: flex-start; 
+    min-height: 100vh;         
     background-color: #FFFFFF;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding-top: 5vh;          /* <--- Este es el espacio real al techo */
+    padding-top: 5vh;   
+    
 }
 
-/* LOGIN CONTAINER - cuadro azul */
+/*CUADRO AZUL/* */
 .login-container {
-    background-color: #1E3664; /* azul */
+    background-color: #1E3664; 
     padding: 5vh;              /* espacio relativo interno */
     border-radius: 2vh;        /* bordes redondeados */
     box-shadow: 0 1vh 3vh rgba(0,0,0,0.2); /* sombra relativa */
@@ -31,7 +32,7 @@ body {
     align-items: center;
     width: 90%;
     max-width: 420px;    
-    margin-bottom: 2vh; /* <--- Espacio pequeño entre logos y cuadro */
+    margin-bottom: 2vh; /*Espacio pequeño entre logos y cuadro */
 }
 
 .logos img {
@@ -39,7 +40,7 @@ body {
     max-width: 180px;         
 }
 
-/* INPUTS Y BOTÓN - mismo tamaño */
+
 .login-container input,
 .login-container button {
     width: 90%;             /* ancho igual */
@@ -51,7 +52,7 @@ body {
     box-sizing: border-box; /* padding no rompe ancho */
 }
 
-/* BOTÓN - estilo y efecto hover */
+
 .login-container button {
     background-color: rgba(255, 255, 255, 0.2); /* semi-transparente */
     color: white;
@@ -74,4 +75,10 @@ body {
     margin-bottom: 0.5vh; /* espacio pequeño debajo del label */
     font-size: 2vh;       /* tamaño de fuente */
     padding-left: 2vh;  /* espacio a la izquierda del label */
+}
+@media (max-width: 480px) {
+    .login-container {
+        width: 80vw;       
+        padding: 3vh;      
+    }
 }

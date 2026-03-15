@@ -3,12 +3,12 @@
 
 <head>
     <title>SIGEA</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
 
 </head>
 
 <body>
-</body>
 <div class="logos"> 
         <img src="logos/logo3.jpeg" alt="Logo 1">
         <img src="logos/logo2.jpeg" alt="Logo 2">

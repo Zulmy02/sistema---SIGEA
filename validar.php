@@ -1,33 +1,31 @@
 <?php
 session_start();
-include("conexion.php");
+include("includes/conexion.php");
 
-$usuario=$_POST["nombre_usuario"];
-$contrasena=$_POST["contrasena"];
+$usuario = $_POST["nombre_usuario"];
+$contrasena = $_POST["contrasena"];
 
-$consulta_sql="SELECT * FROM usuarios WHERE nombre_usuario='$usuario' AND contrasena='$contrasena'";
-$resultado=$conexion->query($consulta_sql);
-if ($resultado->num_rows > 0) {
-    $usuarioo = $resultado->fetch_assoc();
-    
-    $_SESSION['usuario'] = $usuarioo['NOMBRE_USUARIO'];
-    $_SESSION['rol'] = $usuarioo['ROL'];
+// 1. Preparamos la plantilla (usamos '?' en lugar de las variables)
+$stmt = $conexion->prepare("SELECT NOMBRE_USUARIO, ROL FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?");
 
+// 2. Unimos los datos (la "s" significa que son Strings)
+$stmt->bind_param("ss", $usuario, $contrasena);
 
- if($usuarioo['ROL'] == 'admin'){
-        header("Location: dashboard_admin.php");
-    } elseif($usuarioo['ROL'] == 'organizador'){
-        header("Location: dashboard_organizador.php");
-    } elseif($usuarioo['ROL'] == 'tomadorLista'){
-        header("Location: dashboard_tomador.php");
-    } else {
-        // rol desconocido, redirigir al login con error
-        header("Location: index.php?error=1");
-    }
+// 3. Ejecutamos
+$stmt->execute();
+$resultado = $stmt->get_result();
 
+if ($fila = $resultado->fetch_assoc()) {
+    // Si entró aquí, es que el usuario y contraseña son correctos
+    $_SESSION['usuario'] = $fila['NOMBRE_USUARIO'];
+    $_SESSION['rol'] = $fila['ROL'];
+   
+
+    // Mandamos a TODOS al mismo archivo
+    header("Location: dashboard2.php");
     exit;
-
 } else {
+    // Si no coinciden, al login con error
     header("Location: index.php?error=1"); 
     exit;
 }

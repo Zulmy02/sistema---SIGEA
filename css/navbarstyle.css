@@ -1,0 +1,121 @@
+
+.main-header {
+    background-color: white;
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column; /* Pone los logos arriba y el navbar abajo */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+   
+}
+
+/* Contenedor de los escudos */
+.logo-container {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Espacio entre los logos */
+    margin-bottom: 20px;
+    width: 100%;
+    flex-wrap: wrap; /* En celular bajan si no caben*/
+   
+}
+
+.logo-img {
+    height: 60px; 
+    width: auto;
+}
+
+/* Contenedor que centra la cápsula */
+.navbar-container {
+ 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    margin-top: 30px; 
+}
+
+
+.navbar {
+    background-color: #1a467b; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 30px;
+    border-radius: 50px; /* Bordes muy redondeados como cápsula */
+    gap: 35px;
+    
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 5px 15px;
+    transition: 0.3s;
+
+}
+
+.navbar a:hover {
+    color: #bdc3c7;
+}
+
+/* Botón de cerrar sesión resaltado */
+.btn-salir {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 10px 0;
+    }
+
+    .logo-container {
+       
+        display: flex;
+        flex-direction: row; /* Se quedan en línea horizontal */
+        flex-wrap: wrap;     /* Si no caben, el tercero baja pero se CENTRA */
+        justify-content: center;
+        gap: 15px;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    .logo-img {
+        height: 35px;       /* Tamaño ajustado para que no se vea amontonado */
+        max-width: 45%;     /* Para que no crezcan de más */
+        object-fit: contain;
+    }
+
+    .navbar-container {
+      
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        padding: 0 10px;
+        margin-top: 5px;
+    }
+
+    .navbar {
+        padding: 8px 20px;
+        border-radius: 25px; /* Mantiene la forma de cápsula */
+        gap: 8px;
+        width: auto;         /* Se ajusta al contenido */
+        max-width: 95%;      /* No toca los bordes del cel */
+        flex-wrap: wrap;     /* Si son muchos botones, bajan centrados */
+    }
+
+    .navbar a {
+        font-size: 11px;
+        padding: 4px 6px;
+    }
+}
+
